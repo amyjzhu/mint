@@ -15,6 +15,9 @@
 #  limitations under the License.
 #
 
+# todo remove if interferes
+export MINT_RUN_CORE_DIR=~/go/src/github.com/minio/mint
+
 ./mint.sh "$@"  &
 
 # Get the pid to be used for kill command if required

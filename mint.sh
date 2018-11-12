@@ -33,8 +33,10 @@ if [ "$ENABLE_VIRTUAL_STYLE" -eq 1 ]; then
         SERVER_IP="${SERVER_ENDPOINT%%:*}"
         SERVER_PORT="${SERVER_ENDPOINT/*:/}"
         # Check if SERVER_IP is actually IPv4 address
-        octets=("${SERVER_IP//./ }")
+#        octets=("${SERVER_IP//./ }")
+        octets=(${SERVER_IP//./ })
         if [ "${#octets[@]}" -ne 4 ]; then
+	    echo "octets are $octets and length is ${#octets[@]}"
             echo "$SERVER_IP must be an IP address"
             exit 1
         fi

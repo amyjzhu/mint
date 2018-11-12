@@ -22,7 +22,12 @@ if [ -z "$MC_VERSION" ]; then
 fi
 
 test_run_dir="$MINT_RUN_CORE_DIR/mc"
-$WGET --output-document="${test_run_dir}/mc" "https://dl.minio.io/client/mc/release/linux-amd64/mc.${MC_VERSION}"
+# TODO maybe delete
+mkdir -p "test_run_dir"
+
+wget --output-document="${test_run_dir}/mc" "https://dl.minio.io/client/mc/release/linux-amd64/archive/mc.${MC_VERSION}"
+
+#$WGET --output-document="${test_run_dir}/mc" "https://dl.minio.io/client/mc/release/linux-amd64/mc.${MC_VERSION}"
 chmod a+x "${test_run_dir}/mc"
 
 git clone --quiet https://github.com/minio/mc.git "$test_run_dir/mc.git"
